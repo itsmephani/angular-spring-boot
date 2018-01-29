@@ -7,20 +7,20 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @RestController
-class CoolCarController {
+class CarsController {
     private CarRepository repository;
 
-    public CoolCarController(CarRepository repository) {
+    public CarsController(CarRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/cool-cars")
-    @CrossOrigin(origins = "http://localhost:4200")
-    public Collection<Car> coolCars() {
-        return repository.findAll().stream()
-                .filter(this::isCool)
-                .collect(Collectors.toList());
-    }
+    // @GetMapping("/cars")
+    // @CrossOrigin(origins = "http://localhost:4200")
+    // public Collection<Car> index() {
+    //     return repository.findAll().stream()
+    //             .filter(this::isCool)
+    //             .collect(Collectors.toList());
+    // }
 
     private boolean isCool(Car car) {
         return !car.getName().equals("AMC Gremlin") &&
